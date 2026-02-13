@@ -8,15 +8,16 @@ export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
-    const token = localStorage.getItem("Access_token")
+    const token = localStorage.getItem("Access_Token")
+    console.log(token)
     setIsLoggedIn(!!token)
   }, [])
 
   const handleLogout = () => {
-    localStorage.removeItem("Access_token")
-    localStorage.removeItem("email")
+    localStorage.removeItem("Access_Token")
+   
     setIsLoggedIn(false)
-    router.push("/login")
+    // router.push("/login")
   }
   return (
     <nav className="sticky top-0 z-50 w-full bg-[#D0EBEA]/70 backdrop-blur-md border-b border-black/5">
@@ -36,7 +37,7 @@ export default function Navbar() {
           <NavItem text="Doctors" />
         </div>
 
-        {/* RIGHT: ACTIONS */}
+        
         <div className="flex items-center gap-3">
 
           {isLoggedIn ? (

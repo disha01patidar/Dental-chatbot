@@ -10,9 +10,9 @@ export default function HomePage() {
   const router = useRouter()
 
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn")
-    if (!isLoggedIn) {
-      router.push("/login")
+    const token = localStorage.getItem("Access_Token")
+    if (!token) {
+      router.replace("/login")
     }
   }, [])
 
